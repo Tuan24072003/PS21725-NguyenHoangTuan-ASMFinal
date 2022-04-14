@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dang nhap</title>
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        [name='formdk'] {
+            width: 600px;
+            margin: auto;
+            background-color: aquamarine;
+            background-image: url(bg.jpg);
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        label {
+            color: darkred;
+            width: 90px;
+            display: inline-block;
+            height: 25px;
+            top: -3px;
+            position: relative;
+        }
+
+        div {
+            padding: 8px 0;
+        }
+
+        #ntn {
+            display: inline-block;
+            width: 450px;
+            padding: 10px
+        }
+
+        #ntn input {
+            width: 50px;
+            margin-left: 10px;
+            height: 25px;
+        }
+
+        .txt {
+            width: 240px;
+            /* background-color: gold;
+            border: none; */
+            height: 25px;
+            margin-right: 10px;
+        }
+
+        span {
+            width: 120px;
+            display: inline-block;
+        }
+
+        button {
+            width: 100px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="boxcenter">
+        <div class="row mb header">
+            <h1> SIÊU THỊ TRỰC TUYẾN</h1>
+        </div>
+        <div class="row mb menu">
+            <ul>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="#">Giỏ hàng</a></li>
+                <li><a href="#">Liên hệ</a></li>
+                <li><a href="#">Góp ý</a></li>
+                <li><a href="#">Hỏi đáp</a></li>
+                <li><a href="dangnhap.html">Đăng nhập</a></li>
+                <li><a href="dangki.html">Đăng kí</a></li>
+            </ul>
+        </div>
+        <h2><div align="center">Đăng nhập</div></h2>
+        <form name="formdk">
+            <!-- <div>
+                <label>Họ </label>
+                <input type="text" name="ho" class="txt">
+                <span class="err" id="errHo"></span>
+            </div>
+            <div>
+                <label>Tên</label>
+                <input type="text" name="ten" class="txt">
+            </div>
+            <div>
+                <label>Ngày sinh</label>
+                <fieldset id="ntn">
+                    Ngày <input type="number" name="ngay" min="1" max="31"> Tháng <input type="number" name="thang" min="1"
+                        max="12"> Năm <input type="number" name="nam" min="1950" max="2022">
+                </fieldset>
+            </div>
+            <div>
+                <label>Giới tính</label>
+                <input type="radio" name="gioitinh" value="1">Nam
+                <input type="radio" name="gioitinh" value=0>Nữ
+            </div> -->
+
+            <div>
+                <label>Tên đăng nhập</label>
+                <input type="text" name="account" class="txt">
+            </div>
+            <div>
+                <label>Mật khẩu</label>
+                <input type="password" name="password" class="txt">
+            </div>
+
+            <!-- <div>
+                <label>Sở thích</label>
+                <fieldset id="ntn">
+                    <input type="checkbox" name="sothich"><span>Đọc sách</span>
+                    <input type="checkbox" name="sothich"><span>Xem phim</span> <br>
+                    <input type="checkbox" name="sothich"><span>Nghe nhạc</span>
+                    <input type="checkbox" name="sothich"><span>Đá bóng</span> <br>
+                    <input type="checkbox" name="sothich"><span>May vá</span>
+                    <input type="checkbox" name="sothich"><span>Web</span>
+                </fieldset>
+            </div> -->
+            <div>
+                <label></label>
+                <button type="submit" onclick="return kiemtra()">Đăng nhập</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        function kiemtra() {
+            if (!kiemtratk()) return false;
+            if (!kiemtrapw()) return false;
+
+            // if (!kiemtraNgayThangNam()) return false;
+            // if (!ktsdt()) return false;
+            // if (!ktgioitinh()) return false;
+            // if (!ktsothich()) return false;
+            // alert("Dang ki thanh cong");
+        }
+        function kiemtratk() {
+            var account = document.forms["formdk"]["account"];
+            if (account.value == "") {
+                alert("Ten dang nhap khong duoc rong.");
+                account.focus();
+                return false;
+            }
+            return true;
+        }
+        function kiemtrapw() {
+            var password = document.forms["formdk"]["password"];
+            if (password.value == "") {
+                alert("Mat khau khong duoc rong");
+                password.focus();
+                return false;
+            }
+            return true;
+        }
+
+
+        // function kiemtraNgayThangNam() {
+        //     var ngay = document.forms["formdk"]["ngay"];
+        //     if (ngay.value == "") {
+        //         alert("Ngay khong duoc rong");
+        //         ngay.focus();
+        //         return false;
+        //     }
+
+        //     var thang = document.forms["formdk"]["thang"];
+        //     if (thang.value == "") {
+        //         alert("Thang khong duoc rong");
+        //         thang.focus();
+        //         return false;
+        //     }
+
+        //     var nam = document.forms["formdk"]["nam"];
+        //     if (nam.value == "") {
+        //         alert("Nam khong duoc rong");
+        //         nam.focus();
+        //         return false;
+        //     }
+        //     return true;
+        // }
+        // function ktgioitinh(){
+        //     var gioitinh = document.forms["formdk"]["gioitinh"];
+        //     if(!gioitinh[0].checked && !gioitinh[1].checked){
+        //         alert("Chon gioi tinh la Nam/Nu");
+        //         gioitinh.focus();
+        //         return false;
+        //     }
+        //     return true;
+        // }
+        // function ktsothich(){
+        //     var sothich= document.forms["formdk"]["sothich"];
+        //     var i;
+        //     for(i=0; i<sothich.length; i++){
+        //         if(sothich[i].checked) break;
+        //     }
+        //     if(i== sothich.length){
+        //         alert("Chon it nhat 1 muc so thich");
+        //         sothich.focus();
+        //         return false;
+        //     }
+        //     return true;
+        // }
+
+        // function ktsdt(){
+        //     var dienthoai = document.forms["formdk"]["dienthoai"];
+        //     if (dienthoai.value == "") {
+        //         alert("So dien thoai khong duoc rong");
+        //         dienthoai.focus();
+        //         return false;
+        //     }
+        //     return true;
+        // }
+    </script>
+</body>
